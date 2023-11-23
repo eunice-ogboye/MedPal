@@ -34,6 +34,10 @@ nav .title{
     color:#5229C6;
     font-size: 40px;
 }
+nav .title a, nav .title a:focus {
+    text-decoration: none;
+    color: #5229C6;
+}
 .hero{
     display: flex;
     align-items: center;
