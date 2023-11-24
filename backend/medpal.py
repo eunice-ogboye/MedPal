@@ -1,5 +1,6 @@
-from openai import send_message
+from open import send_message
 # chat_functions.py
+
 def adaptive_truncate(message, token_limit):
     tokens = message["content"].split()
     truncated_tokens = []
