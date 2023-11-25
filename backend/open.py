@@ -9,7 +9,7 @@ load_dotenv()
 # Set your OpenAI API key
 SECRET_TOKEN = os.getenv('OPENAI_API_KEY')
 
-"""
+
 
 def send_message(messages):
     response = openai.ChatCompletion.create(
@@ -18,7 +18,8 @@ def send_message(messages):
         api_key = SECRET_TOKEN
     )
     return response["choices"][0]["message"]["content"]
-    """
+    
+"""
 def send_message(message):
     """
     Generates a response to the user's input using the OpenAI GPT-3.5-Turbo model.
@@ -47,3 +48,4 @@ def send_message(message):
 
     except Exception as e:
         return str(e)
+"""
