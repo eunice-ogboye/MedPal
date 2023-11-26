@@ -1,7 +1,11 @@
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+
+                
 body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Satoshi', sans-serif;
 }
 header{
     padding: 2px 3rem;
@@ -11,6 +15,9 @@ nav{
     justify-content: space-between;
     align-items: center;
     height: 110px;
+}
+.menu-bar{
+    visibility: hidden;
 }
 .menu{
     display: flex;
@@ -32,7 +39,7 @@ nav{
 nav .title{
     font-weight: 700;
     color:#5229C6;
-    font-size: 40px;
+    font-size: 32px;
 }
 nav .title a, nav .title a:focus {
     text-decoration: none;
@@ -51,6 +58,9 @@ nav .title a, nav .title a:focus {
     text-decoration: none;
     padding: 24px 36px;
 }
+.start:hover{
+    background: #371B84;
+}
 .txt p{
     text-align: justify;
     padding-bottom: 30px;
@@ -63,21 +73,86 @@ nav .title a, nav .title a:focus {
 }
 .img-hero{
     width: 580px;
+    position: relative;
+}
+.float{
+    position: absolute;
+    background: #EBE7F94D;
+    color: #5229C6;
+    padding: 12px 16px;
+    width: 400px;
+    border-radius: 12px;
+}
+.f-top{
+    top: -60px;
+    right: -30px;
+}
+.f-buttom{
+    bottom: -60px;
+    left: -40px;
 }
 @media only screen and (max-width: 768px) {
     nav{
-       flex-direction: column;
-        justify-content: space-between;
+       flex-direction: row;
+        justify-content:space-between;
         align-items: center;
         height: 110px;
     }
+    
     .hero{
         flex-direction: column;
         align-items: center;
         margin: 40px 0;
     }
+    .img-hero{
+        width: 358px;
+    }
     .img-hero img{
-        width: 90%;
+        width: 100%;
         margin: 2px;
     }
+    .start{
+        font-size: 14px;
+    }
+    .float{
+        position: absolute;
+        background: #EBE7F94D;
+        color: #5229C6;
+        padding: 12px 16px;
+        width: 298px;
+        border-radius: 12px;
+    }
+}
+@media (max-width: 600px) {
+    .nav{
+        flex-direction: row;
+    }
+    .menu ul {
+        display: none; /* Hide the menu links on small screens */
+        flex-direction: column;
+        text-align: left;
+        position: absolute;
+        top: 110px;
+        right: 0;
+        background: #FFFFFF;
+        color: #757575;
+        width: 50%;
+        height: 50vh;
+        float: right;
+        z-index: 1;
+    }
+
+    .menu-bar {
+        visibility: visible; 
+        display: inline; 
+    }
+
+    .menu:hover ul {
+        display: flex; 
+    }
+
+    .menu-bar img {
+        width: 30px; 
+    }
+    .menu .start{visibility: hidden;}
 }

@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+                
 </head>
 <body>
     <header>
         <nav>
             <div class="title"><a href="../index.html">MedPal</a></div>
+            
             <div class="menu">
                 <ul>
-                    <li><a href="./pages/faq.html" class="menu-link">FAQ</a></li>
-                    <li><a href="#" class="menu-link">Privacy & Terms</a></li>
+                    <li><a href="./pages/faq.html" class="menu-link">FAQs</a></li>
+                    <li><a href="./pages/privacy.html" class="menu-link">Privacy & Terms</a></li>
                 </ul>
                 <a href="./pages/signup.html" class="start">Start Symptom Assessment</a>
+                <div class="menu-bar"><img src="./assets/images/icon/bars-solid.svg" alt="menu bar"></div>
             </div>
         </nav>
         <div class="hero">
@@ -27,8 +31,20 @@
                 </div>
             <div class="img-hero">
                 <img src="./assets/images/img1.svg" alt="">
+                <p class="float f-top">“I've noticed a rash on my skin. Can you help me understand what might be causing it, and should I see a doctor?”</p>
+                <p class="float f-buttom">“I've been experiencing a persistent headache for the past few days. What could be the possible causes, and should I be concerned?”</p>
             </div>
         </div>
     </header>
+
+    <script>document.addEventListener('DOMContentLoaded', function () {
+        const menuBar = document.querySelector('.menu-bar');
+        const menuList = document.querySelector('.menu ul');
+    
+        menuBar.addEventListener('click', function () {
+            menuList.style.display = (menuList.style.display === 'flex') ? 'none' : 'flex';
+        });
+    });
+    </script>
 </body>
 </html>

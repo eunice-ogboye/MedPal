@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedPal Chat</title>
+    <link rel="stylesheet" href="../assets/styles/chat.css">
+</head>
+<body class="chat-page">
+    <header>
+        <nav>
+            <div class="title"><a href="../index.html">MedPal</a></div>
+            <div class="menu">
+                <img src="../assets/images/icon/profile.svg" alt="">
+                <div class="details">
+                    <p class="name">Oluwatimileyin Williams</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <aside class="recents">
+            <a href="#">New Chat <img src="../assets/images/icon/add.svg" alt=""></a>
+            <h2>Recent chats</h2>
+        </aside>
+        <div class="chatbot">
+            <ul class="chatbox" id="chatbox">
+                <!-- Initial bot greeting -->
+                <li class="chat outgoing">
+                    <span><img src="../assets/images/icon/mpprofile.svg" alt=""></span>
+                    <p>Hello! How can I assist you today?</p>
+                </li>
+            </ul>
+
+            <div class="foot">
+                <div id="user-input">
+                    <input type="text" id="user-message" placeholder="Type your message...">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+               
+                <!-- <footer>
+                    <p>MedPal is a tool for informational purposes only. It does not replace professional medical advice, diagnosis, or treatment. Information provided may be inaccurate or incomplete. If you experience severe symptoms, please seek immediate medical attention. Consult with a healthcare professional for a thorough evaluation of your health.</p>
+                </footer> -->
+            </div>
+        </div>
+
+        <script>
+            function sendMessage() {
+                // Get user input
+                var userInput = document.getElementById("user-message").value;
+
+                // Create user message element
+                var userMessageElement = document.createElement("li");
+                userMessageElement.className = "chat incoming";
+                userMessageElement.innerHTML = `
+                    <span><img src="../assets/images/icon/profile.svg" alt=""></span>
+                    <p>${userInput}</p> 
+                `;
+
+                // Append user message to chatbox
+                document.getElementById("chatbox").appendChild(userMessageElement);
+
+                // Simulate bot response echoing user input
+                var botResponse = userInput;
+
+                // Create bot response element
+                var botResponseElement = document.createElement("li");
+                botResponseElement.className = "chat outgoing";
+                botResponseElement.innerHTML = `
+                    <span><img src="../assets/images/icon/mpprofile.svg" alt=""></span>
+                    <p>${botResponse}</p>
+                `;
+
+                // Append bot response to chatbox
+                document.getElementById("chatbox").appendChild(botResponseElement);
+
+                // Clear user input
+                document.getElementById("user-message").value = "";
+            }
+
+
+               // Add an event listener for the "Enter" key
+        document.getElementById('user-message').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                // Prevent the default behavior (submitting the form)
+                event.preventDefault();
+                // Trigger the sendMessage function
+                sendMessage();
+            }
+        });
+        </script>
+    </section>
+</body>
+</html>
