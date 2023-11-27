@@ -58,7 +58,7 @@
           })
             .then((response) => {
               if (!response.ok) {
-                throw new Error(response.statusText);
+                throw new Error("Invalid credentials" + response.statusText );
               }
               return response.json();
             })
