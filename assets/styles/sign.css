@@ -59,29 +59,27 @@ a {
   color: #5229c6;
   font-weight: 500;
 }
-hr {
-  margin-top: 20px;
-  width: 80%;
-}
-.or {
-  background: #fff;
-  width: 8%;
-  margin: -19px auto 10px;
-}
-.or{
-    background: #fff;
-    width: 8%;
-    margin: -19px auto 10px;
-}
+
 
 @media (max-width: 600px) {
     .sign{
-        width: 100%;
+        max-width: 100%;
         text-align: center;
         margin: auto;
         padding: 10px;
     }
     body{
         font-size: 14px;
+    }
+    form{
+      width: 100%;
+    }
+    form input {
+      width: 320px;
+      margin: 10px 0;
+    }
+    button {
+      width: 360px;
+      padding: 24px 36px;
     }
 }
