@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/icon/mpprofile.svg"
+      type="image/x-icon"
+    />
     <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
   </head>
   <body>
@@ -21,9 +26,7 @@
               >
             </li>
           </ul>
-          <a href="./pages/signin.html" class="start"
-            >Start Symptom Assessment</a
-          >
+          <a id="assessmentLink" class="start">Start Symptom Assessment</a>
           <div class="menu-bar">
             <img src="./assets/images/icon/bars-solid.svg" alt="menu bar" />
           </div>
@@ -37,9 +40,7 @@
             is here to listen. Share your symptoms, Receive informed guidance.
             Your personalized path to wellness starts now.
           </p>
-          <a href="./pages/signin.html" class="start"
-            >Start Symptom Assessment</a
-          >
+          <a id="assessmentLink" class="start">Start Symptom Assessment</a>
         </div>
         <div class="img-hero">
           <img src="./assets/images/img1.svg" alt="" />
@@ -54,7 +55,7 @@
         </div>
       </div>
     </header>
-
+    <script src="./assets/js/data.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const menuBar = document.querySelector(".menu-bar");
@@ -65,6 +66,21 @@
             menuList.style.display === "flex" ? "none" : "flex";
         });
       });
+      const token = localStorage.getItem("accessToken"); // Retrieve token from local storage
+
+      const isLoggedIn = !!token; // Check if a token exists
+
+      // Check if the user is logged in (You might have a different way to check this)
+
+      const assessmentLink = document.getElementById("assessmentLink");
+
+      if (!isLoggedIn) {
+        // If the user is not logged in, route to the sign-in page
+        assessmentLink.href = "./pages/signin.html";
+      } else {
+        // If the user is logged in, route to the chat page
+        assessmentLink.href = "./pages/chat.html";
+      }
     </script>
   </body>
 </html>
