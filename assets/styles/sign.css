@@ -1,69 +1,72 @@
-@import url('https://fonts.cdnfonts.com/css/satoshi');
+@import url("https://fonts.cdnfonts.com/css/satoshi");
 
-                
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Satoshi', sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Satoshi", sans-serif;
 }
-.sign{
-    width: 460px;
-    text-align: center;
-    margin: auto;
-    padding: 10px;
+.sign {
+  width: 460px;
+  text-align: center;
+  margin: auto;
+  padding: 10px;
 }
-.sign h2{
-    font-size: 32px;
+.sign h2 {
+  font-size: 32px;
 }
-form input{
-     width: 400px;
-     margin: 10px 0;
-     padding: 20px 24px;
-     outline: none;
-     background: #fff;
-     border-radius: 10px;
-     border: 1px solid#757575;
-     color: #757575;
+form input {
+  width: 400px;
+  margin: 10px 0;
+  padding: 20px 24px;
+  outline: none;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid#757575;
+  color: #757575;
 }
-button{
-    width: 460px;
-    padding: 24px 36px;
-    border: none;
-    border-radius: 100px;
-    background: #5229C6;
-    color: #fff;
-    cursor: pointer;
-    outline: none;
-    margin: 1rem auto;
+button {
+  width: 460px;
+  padding: 24px 36px;
+  border: none;
+  border-radius: 100px;
+  background: #5229c6;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  margin: 1rem auto;
 }
-button:hover{
-    background: #371B84;
+button:hover {
+  background: #371b84;
 }
 .other .inp {
-    border: 1px solid#757575;
-     color: #757575;
-     background: #fff;
-     margin: 10px 0;
-     border-radius: 10px;
-     padding: 15px;
-     font-size: 18px;
+  border: 1px solid#757575;
+  color: #757575;
+  background: #fff;
+  margin: 10px 0;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 18px;
 }
-.inp img{
-     margin: 2px 10px -4px;
+.inp img {
+  margin: 2px 10px -4px;
 }
-.ask{
-    margin: 1rem auto 2rem;
-
+.ask {
+  margin: 1rem auto 2rem;
 }
-p a{
-    text-decoration: none;
-    color: #5229C6;
-    font-weight: 500;
+a {
+  text-decoration: none;
+  color: #5229c6;
+  font-weight: 500;
 }
 hr {
-    margin-top: 20px;
-    width: 80%;
+  margin-top: 20px;
+  width: 80%;
+}
+.or {
+  background: #fff;
+  width: 8%;
+  margin: -19px auto 10px;
 }
 .or{
     background: #fff;

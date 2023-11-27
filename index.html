@@ -1,50 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
-                
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/icon/mpprofile.svg"
+      type="image/x-icon"
+    />
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="title"><a href="../index.html">MedPal</a></div>
-            
-            <div class="menu">
-                <ul>
-                    <li><a href="./pages/faq.html" class="menu-link">FAQs</a></li>
-                    <li><a href="./pages/privacy.html" class="menu-link">Privacy & Terms</a></li>
-                </ul>
-                <a href="./pages/signup.html" class="start">Start Symptom Assessment</a>
-                <div class="menu-bar"><img src="./assets/images/icon/bars-solid.svg" alt="menu bar"></div>
-            </div>
-        </nav>
-        <div class="hero">
-            <div class="txt">
-                <div class="txt-title">AI-Powered Symptom and Diagnosis Guidance</div>
-                <p>Empower your health journey with AI precision. Our chatbot companion is here to listen. Share your symptoms, 
-                    Receive informed guidance. Your personalized path to wellness starts now.</p>
-                    <a href="./pages/signup.html" class="start">Start Symptom Assessment</a>  
-                </div>
-            <div class="img-hero">
-                <img src="./assets/images/img1.svg" alt="">
-                <p class="float f-top">“I've noticed a rash on my skin. Can you help me understand what might be causing it, and should I see a doctor?”</p>
-                <p class="float f-buttom">“I've been experiencing a persistent headache for the past few days. What could be the possible causes, and should I be concerned?”</p>
-            </div>
-        </div>
-    </header>
+      <nav>
+        <div class="title"><a href="../index.html">MedPal</a></div>
 
-    <script>document.addEventListener('DOMContentLoaded', function () {
-        const menuBar = document.querySelector('.menu-bar');
-        const menuList = document.querySelector('.menu ul');
-    
-        menuBar.addEventListener('click', function () {
-            menuList.style.display = (menuList.style.display === 'flex') ? 'none' : 'flex';
+        <div class="menu">
+          <ul>
+            <li><a href="./pages/faq.html" class="menu-link">FAQs</a></li>
+            <li>
+              <a href="./pages/privacy.html" class="menu-link"
+                >Privacy & Terms</a
+              >
+            </li>
+          </ul>
+          <a id="assessmentLink" class="start">Start Symptom Assessment</a>
+          <div class="menu-bar">
+            <img src="./assets/images/icon/bars-solid.svg" alt="menu bar" />
+          </div>
+        </div>
+      </nav>
+      <div class="hero">
+        <div class="txt">
+          <div class="txt-title">AI-Powered Symptom and Diagnosis Guidance</div>
+          <p>
+            Empower your health journey with AI precision. Our chatbot companion
+            is here to listen. Share your symptoms, Receive informed guidance.
+            Your personalized path to wellness starts now.
+          </p>
+          <a id="assessmentLink" class="start">Start Symptom Assessment</a>
+        </div>
+        <div class="img-hero">
+          <img src="./assets/images/img1.svg" alt="" />
+          <p class="float f-top">
+            “I've noticed a rash on my skin. Can you help me understand what
+            might be causing it, and should I see a doctor?”
+          </p>
+          <p class="float f-buttom">
+            “I've been experiencing a persistent headache for the past few days.
+            What could be the possible causes, and should I be concerned?”
+          </p>
+        </div>
+      </div>
+    </header>
+    <script src="./assets/js/data.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuBar = document.querySelector(".menu-bar");
+        const menuList = document.querySelector(".menu ul");
+
+        menuBar.addEventListener("click", function () {
+          menuList.style.display =
+            menuList.style.display === "flex" ? "none" : "flex";
         });
-    });
+      });
+      const token = localStorage.getItem("accessToken"); // Retrieve token from local storage
+
+      const isLoggedIn = !!token; // Check if a token exists
+
+      // Check if the user is logged in (You might have a different way to check this)
+
+      const assessmentLink = document.getElementById("assessmentLink");
+
+      if (!isLoggedIn) {
+        // If the user is not logged in, route to the sign-in page
+        assessmentLink.href = "./pages/signin.html";
+      } else {
+        // If the user is logged in, route to the chat page
+        assessmentLink.href = "./pages/chat.html";
+      }
     </script>
-</body>
+  </body>
 </html>
