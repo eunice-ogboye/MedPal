@@ -75,22 +75,7 @@ nav .title a, nav .title a:focus {
     width: 580px;
     position: relative;
 }
-.float{
-    position: absolute;
-    background: #EBE7F94D;
-    color: #5229C6;
-    padding: 12px 16px;
-    width: 400px;
-    border-radius: 12px;
-}
-.f-top{
-    top: -60px;
-    right: -30px;
-}
-.f-buttom{
-    bottom: -60px;
-    left: -40px;
-}
+
 @media only screen and (max-width: 768px) {
     nav{
        flex-direction: row;
@@ -113,16 +98,6 @@ nav .title a, nav .title a:focus {
     }
     .start{
         font-size: 14px;
-    }
-    .float{
-        position: absolute;
-        background: #EBE7F94D;
-        color: #5229C6;
-        font-size: 15px;
-        line-height: 20px;
-        padding: 12px 16px;
-        width: 298px;
-        border-radius: 12px;
     }
 }
 @media (max-width: 600px) {
@@ -165,19 +140,4 @@ nav .title a, nav .title a:focus {
         width: 30px; 
     }
     .menu .start{visibility: hidden;}
-    .float{
-       font-size: 12px;
-        padding: 12px 16px;
-        width: 298px;
-        line-height: 16px;
-        border-radius: 12px;
-    }
-    .f-top{
-        top: -40px;
-        right: 10px;
-    }
-    .f-buttom{
-        bottom: -40px;
-        left: 10px;
-    }
 }

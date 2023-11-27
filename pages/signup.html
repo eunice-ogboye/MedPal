@@ -36,17 +36,6 @@
       <p class="ask">
         You have an account? <a href="./signin.html">Sign in</a>
       </p>
-      <hr />
-      <p class="or">OR</p>
-      <div class="other">
-        <button class="inp">
-          <img src="../assets/images/icon/gg.svg" alt="" />Continue with Google
-        </button>
-        <button class="inp">
-          <img src="../assets/images/icon/facebook-f.svg" alt="" />Continue with
-          Facebook
-        </button>
-      </div>
     </div>
 
     <script>
@@ -98,15 +87,6 @@
               } else {
                 errorMessage.textContent = `Registration failed. ${error.message}`;
               }
-
-              // Close the modal on close button click
-              document
-                .querySelector(".close")
-                .addEventListener("click", function () {
-                  modal.style.display = "none";
-                });
-
-              // Optionally, you can handle error cases differently or provide more specific error messages
             });
         });
     </script>
