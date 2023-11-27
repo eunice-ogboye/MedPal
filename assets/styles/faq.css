@@ -38,11 +38,11 @@ nav{
 }
 nav .title{
     font-weight: 700;
-    color:#5229C6;
     font-size: 32px;
 }
 nav .title a {
     text-decoration: none;
+    color:#5229C6;
 }
 .start{
     background: #5229C6;
