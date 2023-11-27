@@ -70,3 +70,15 @@ hr {
     width: 8%;
     margin: -19px auto 10px;
 }
+
+@media (max-width: 600px) {
+    .sign{
+        width: 100%;
+        text-align: center;
+        margin: auto;
+        padding: 10px;
+    }
+    body{
+        font-size: 14px;
+    }
+}

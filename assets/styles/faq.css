@@ -153,6 +153,7 @@ section{
         height: 50vh;
         float: right;
         z-index: 1;
+        font-size: 18px;
     }
 
     .menu-bar {
@@ -168,4 +169,14 @@ section{
         width: 30px; 
     }
     .menu .start{visibility: hidden;}
+    .faq{
+        font-size: 16px;
+        width: 389px;
+    }
+}
+@media (max-width: 400px){
+    .faq{
+        font-size: 16px;
+        width: 389px;
+    }
 }

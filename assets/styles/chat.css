@@ -33,7 +33,11 @@ nav .title a, nav .title a:focus {
     align-items: center;
     gap: 12px;
 }
-
+.menu button{
+    border: none;
+    background: transparent;
+    visibility: hidden;
+}
 .chat-page section{
     display: flex;
 }
@@ -164,4 +168,18 @@ text-align: left;
 .controls button{
     background: #fff;
     border: none;
+}
+@media (max-width: 600px){
+
+    .menu button{
+        border: none;
+        background: transparent;
+        visibility: visible;
+    }
+    .recents, .name {
+        display: none;
+    }
+    .chatbot{
+        margin: auto;
+    }
 }

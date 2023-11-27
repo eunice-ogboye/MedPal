@@ -13,6 +13,7 @@
         <nav class="container-fluid">
             <div class="title"><a href="../index.html">MedPal</a></div>
             <div class="menu">
+                <button onclick="reload()"> <img src="../assets/images/icon/sm-add.svg"></button>
                 <img src="../assets/images/icon/profile.svg" alt="">
                 <div class="details">
                     <p class="name">Oluwatimileyin Williams</p>
@@ -114,16 +115,51 @@
                
                 <div class="board">
                     <p>${botResponse}</p>
-                        <div class="controls">
-                            <button><img src="../assets/images/icon/like.svg" alt=""></button>
-                            <button><img src="../assets/images/icon/dislike.svg" alt=""></button>
-                            <button><img src="../assets/images/icon/copy.svg" alt=""></button>
-                        </div>
-                        </div>
+                    <div class="controls">
+                        <button class="like-button"><img src="../assets/images/icon/like.svg" alt=""></button>
+                        <button class="dislike-button"><img src="../assets/images/icon/dislike.svg" alt=""></button>
+                        <button class="copy-button"><img src="../assets/images/icon/copy.svg" alt=""></button>
+                    </div>
+                </div>
             `;
 
             // Append bot response to chatbox
             document.getElementById("chatbox").appendChild(botResponseElement);
+
+             // Add event listeners to the buttons
+            document.querySelectorAll('.like-button').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    // Toggle between the two image sources for the like button
+                    toggleImage(button.querySelector('img'), 'like.svg', 'liked.svg');
+                });
+            });
+
+            document.querySelectorAll('.dislike-button').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    // Toggle between the two image sources for the dislike button
+                    toggleImage(button.querySelector('img'), 'dislike.svg', 'disliked.svg');
+                });
+            });
+
+            document.querySelectorAll('.copy-button').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    // Copy text to the clipboard
+                    const textToCopy = botResponse;
+                    const tempTextArea = document.createElement('textarea');
+                    tempTextArea.value = textToCopy;
+                    document.body.appendChild(tempTextArea);
+                    tempTextArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempTextArea);
+                    alert('Text copied to clipboard');
+                });
+            });
+
+            function toggleImage(imgElement, src1, src2) {
+                // Toggle between the two image sources
+                const currentSrc = imgElement.src;
+                imgElement.src = currentSrc.includes(src1) ? currentSrc.replace(src1, src2) : currentSrc.replace(src2, src1);
+            }
 
             // Clear user input
             document.getElementById("user-message").value = "";
