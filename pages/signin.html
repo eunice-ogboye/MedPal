@@ -1,28 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign up</title>
-    <link rel="stylesheet" href="../assets/styles/sign.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../assets/styles/sign.css" />
+  </head>
+  <body>
     <div class="sign">
-        <h2>Welcome Back to MedPal</h2>
-    <form action="">
-        <input type="email" placeholder="Email Address" required>
-        <input type="text" name="" id="" placeholder="Password" required>
-        <button>Sign In</button>
-    </form>
-    <p class="ask">You have an account? <a href="./signup.html">Sign Up</a></p>
-    <hr>
-    <p class="or">OR</p>
-    <div class="other">
+      <h2>Welcome Back to <a href="../index.html">MedPal</a></h2>
+      <form id="signInForm">
+        <input
+          type="email"
+          id="emailInput"
+          placeholder="Email Address"
+          required
+        />
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Sign In</button>
+      </form>
+      <p class="ask">
+        You have an account? <a href="./signup.html">Sign Up</a>
+      </p>
+      <hr />
+      <p class="or">OR</p>
+      <div class="other">
+        <button class="inp">
+          <img src="../assets/images/icon/gg.svg" alt="" />Continue with Google
+        </button>
+        <button class="inp">
+          <img src="../assets/images/icon/facebook-f.svg" alt="" />Continue with
+          Facebook
+        </button>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("signInForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
 
-    <button class="inp"><img src="../assets/images/icon/gg.svg" alt="">Continue with Google</button>
-    <button class="inp"><img src="../assets/images/icon/facebook-f.svg" alt="">Continue with Facebook</button>
-        
-    </div>
-    </div>
-</body>
+          const email = document.getElementById("emailInput").value;
+          const password = document.getElementById("passwordInput").value;
+
+          // Data to be sent in the POST request
+          const data = {
+            email: email,
+            password: password,
+          };
+
+          fetch("https://medpal.onrender.com/api/v1/auth/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(response.statusText);
+              }
+              return response.json();
+            })
+            .then((result) => {
+              // Store the response for further use
+              const loginResponse = result;
+              const accessToken = result.userData.accessToken;
+              console.log("Access Token:", accessToken);
+              console.log("Login successful:", loginResponse);
+              const userData = result.userData;
+              console.log("User Data:", userData);
+              // Store user data in local storage for later use
+              localStorage.setItem("userData", JSON.stringify(userData));
+
+              // You can use 'loginResponse' variable for further operations or store it in local storage/session storage.
+              // For example: localStorage.setItem('loginResponse', JSON.stringify(loginResponse));
+              // Redirect to sign-in page
+              window.location.href = "./chat.html";
+            })
+            .catch((error) => {
+              alert(error.message);
+              console.error("Error during login:", error.message);
+              // Handle error during login
+              // You may display an error message to the user or perform other error handling actions.
+            });
+        });
+    </script>
+  </body>
 </html>

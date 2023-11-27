@@ -1,28 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/styles/sign.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/styles/sign.css" />
     <title>Sign up</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="sign">
-        <h2>Welcome to MedPal</h2>
-    <form action="">
-        <input type="email" placeholder="Email Address" required>
-        <input type="password" name="" id="" placeholder="Password" required>
-        <button class="btn">Sign Up</button>
-    </form>
-  
-        <p class="ask">You have an account? <a href="./signin.html">Sign in</a></p>
-        <hr>
-        <p class="or">OR</p>
-        <div class="other">
+      <h2>Welcome to <a href="../index.html">MedPal</a></h2>
+      <form id="signupForm" method="post">
+        <input
+          type="email"
+          id="emailInput"
+          name="email"
+          placeholder="Email Address"
+          required
+        />
+        <input
+          type="password"
+          id="passwordInput"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button class="btn" type="submit">Sign Up</button>
+      </form>
 
-        <button class="inp"><img src="../assets/images/icon/gg.svg" alt="">Continue with Google</button>
-        <button class="inp"><img src="../assets/images/icon/facebook-f.svg" alt="">Continue with Facebook</button>
+      <p class="ask">
+        You have an account? <a href="./signin.html">Sign in</a>
+      </p>
+      <hr />
+      <p class="or">OR</p>
+      <div class="other">
+        <button class="inp">
+          <img src="../assets/images/icon/gg.svg" alt="" />Continue with Google
+        </button>
+        <button class="inp">
+          <img src="../assets/images/icon/facebook-f.svg" alt="" />Continue with
+          Facebook
+        </button>
+      </div>
     </div>
+    <!-- Modal -->
+    <div class="modal" id="errorModal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Registration failed. Please try again.</p>
+      </div>
     </div>
-</body>
+    <script>
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+
+          const email = document.getElementById("emailInput").value;
+          const password = document.getElementById("passwordInput").value;
+
+          // Data to be sent in the POST request
+          const data = {
+            email: email,
+            password: password,
+          };
+
+          fetch("https://medpal.onrender.com/api/v1/auth/register", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(response.statusText);
+              }
+              return response.json();
+            })
+            .then((result) => {
+              // Handle successful registration
+              console.log("Registration successful:", result);
+              // Redirect to sign-in page
+              window.location.href = "./signin.html";
+            })
+            .catch((error) => {
+              // Handle error during registration
+              console.error("Error during registration:", error.message);
+              // Display error with alert
+              alert(error.message);
+              // Display error modal
+              const modal = document.getElementById("errorModal");
+              modal.style.display = "block";
+
+              if (error instanceof TypeError) {
+                errorMessage.textContent =
+                  "Unable to connect to the server. Please try again later.";
+              } else {
+                errorMessage.textContent = `Registration failed. ${error.message}`;
+              }
+
+              // Close the modal on close button click
+              document
+                .querySelector(".close")
+                .addEventListener("click", function () {
+                  modal.style.display = "none";
+                });
+
+              // Optionally, you can handle error cases differently or provide more specific error messages
+            });
+        });
+    </script>
+  </body>
 </html>

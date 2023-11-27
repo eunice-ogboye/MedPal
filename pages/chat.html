@@ -13,9 +13,9 @@
         <nav class="container-fluid">
             <div class="title"><a href="../index.html">MedPal</a></div>
             <div class="menu">
-                <img src="../assets/images/icon/profile.svg" alt="">
+                <img id="userPicture" src="" alt="">
                 <div class="details">
-                    <p class="name">Oluwatimileyin Williams</p>
+                    <p id="userName" class="name">Oluwatimileyin Williams</p>
                 </div>
             </div>
         </nav>
@@ -43,7 +43,7 @@
                         </div>
                     </li>
                 </ul>
-    
+
                 <div class="foot d-flex flex-column">
                     <div id="user-input">
                         <input type="text" id="user-message" placeholder="Enter prompt here">
@@ -64,14 +64,19 @@
         </div>
       </div>
     <section>
-        
-       
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="../assets/js/speech.js"></script>
+<script src="../assets/js/data.js"></script>
 <script>
+        // Update elements if user data exists
+        const userName = userData.name;
+        const userPicture = userData.profile_picture;
+
     function reload() {
         location.reload();
     }
@@ -84,8 +89,8 @@
         var userMessageElement = document.createElement("li");
         userMessageElement.className = "chat incoming";
         userMessageElement.innerHTML = `
-            <span><img src="../assets/images/icon/profile.svg" alt=""></span>
-            <p>${userInput}</p> 
+            <span><img id="userPicture" src="${userPicture}" alt=""></span>
+            <p>${userInput}</p>
         `;
 
         // Append user message to chatbox
@@ -111,7 +116,7 @@
             botResponseElement.className = "chat outgoing";
             botResponseElement.innerHTML = `
                 <span><img src="../assets/images/icon/mpprofile.svg" alt=""></span>
-               
+
                 <div class="board">
                     <p>${botResponse}</p>
                         <div class="controls">
