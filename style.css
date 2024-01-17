@@ -75,6 +75,22 @@ nav .title a, nav .title a:focus {
     width: 580px;
     position: relative;
 }
+@media only screen and (max-width: 908px) {
+    .menu ul li{
+        padding: 0 10px;
+        font-size: 14px;
+    }
+    .start{
+        font-size: 14px;
+        padding: 14px 10px;
+        text-align: center;
+    }
+    .img-hero{
+        width: 400px;
+        position: relative;
+    }
+}
+
 
 @media only screen and (max-width: 768px) {
     nav{

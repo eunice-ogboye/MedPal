@@ -182,8 +182,16 @@ nav .title a:focus {
   background: #fff;
   border: none;
 }
-
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
+  .recents button {
+    width: 100%;
+    padding: 8px;
+    margin: auto 0 2rem;
+    border-radius: 15px;
+  }
+  .recents button img {
+    padding-left: 1.5rem;
+  }
   .foot {
     display: flex;
     flex-direction: column;
@@ -201,6 +209,24 @@ nav .title a:focus {
     margin: 0 auto 1rem;
   }
 }
+@media (max-width: 800px) {
+  .recents button {
+    width: 100%;
+    padding: 8px;
+    margin: auto 0 2rem;
+    border-radius: 15px;
+  }
+  .recents button img {
+    padding-left: 0.5rem;
+  }
+  
+  #user-input {
+    display: flex;
+    padding: 0 10px;
+    width: 100%;
+    margin: 0 auto 1rem;
+  }
+}
 @media (max-width: 600px) {
   .menu button {
     border: none;
@@ -211,8 +237,15 @@ nav .title a:focus {
   .name {
     display: none;
   }
+  .chat{
+    font-size: 10px;
+    padding: 8px;
+  }
   .chatbot {
     margin: auto;
+  }
+  .outgoing .board p{
+    font-size: 12px;
   }
   .foot {
     display: flex;
@@ -226,9 +259,12 @@ nav .title a:focus {
   }
   #user-input {
     display: flex;
-    padding: 0 10px;
+    padding: 0 0px;
     width: 100%;
     margin: 0 auto 1rem;
+  }
+  #user-input input{
+    padding: 14px;
   }
   nav .title {
     font-weight: 700;
@@ -238,5 +274,8 @@ nav .title a:focus {
   .menu img {
     width: 40px;
     height: 40px;
+  }
+  #instructions {
+    font-size: 6px;
   }
 }
